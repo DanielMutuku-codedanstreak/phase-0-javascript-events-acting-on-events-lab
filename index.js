@@ -16,11 +16,13 @@ document.addEventListener("keydown", function (e) {
     }
 });
 //moves the DODGER to the right
+const gameFieldWidth = 400;//the width of the game field that the moving right dodger should not cross
 function moveDodgerRight(){
     const leftNumbers = dodger.style.left.replace("px", "");
     const left = parseInt(leftNumbers, 10);
+    const rightEdge = left + dodger.clientWidth;
 
-    if (left < window.innerWidth - dodger.clientWidth) {
+    if (rightEdge < gameFieldWidth) {
         dodger.style.left = `${left + 1}px`;
     }
 }
